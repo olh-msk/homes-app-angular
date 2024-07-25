@@ -8,7 +8,29 @@ import { HousingLocation } from '../housinglocation';
   selector: 'app-details',
   standalone: true,
   imports: [CommonModule],
-  template: ` <p>details works! {{ housingLocation?.id }}</p> `,
+  template: `
+    <article>
+      <img class="listing-photo" [src]="housingLocation?.photo" />
+      <section>
+        <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
+        <p>{{ housingLocation?.city }}, {{ housingLocation?.state }}</p>
+      </section>
+      <section class="listing-features">
+        <h2 class="section-heading">About this location</h2>
+        <ul>
+          <li>Units available: {{ housingLocation?.availableUnits }}</li>
+          <li>Does this location have wifi: {{ housingLocation?.wifi }}</li>
+          <li>
+            Does this location have laundry: {{ housingLocation?.laundry }}
+          </li>
+        </ul>
+      </section>
+      <section class="listing-apply">
+        <h2 class="section-heading">Apply to live here</h2>
+        <button class="primary" type="button">Apply now!</button>
+      </section>
+    </article>
+  `,
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent {
